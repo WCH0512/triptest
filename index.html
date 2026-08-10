@@ -1,33 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【酷遊東京・多面樂園】8天7夜深度體驗旅行社行程</title>
-    <!-- Tailwind CSS CDN -->
+    <title>【酷遊東京・多面樂園】8天7夜精緻隨行手冊</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Noto Sans TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'Inter', 'sans-serif'],
-                    },
                     colors: {
-                        brand: {
-                            red: '#dc2626',
-                            darkRed: '#991b1b',
-                            gold: '#d97706',
-                            navy: '#0f172a',
-                            slate: '#1e293b',
-                            lightBg: '#f8fafc',
+                        tokyo: {
+                            red: '#E60012',
+                            dark: '#111827',
+                            gold: '#D4AF37',
+                            blue: '#005BAC',
+                            light: '#F8FAFC'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
                     }
                 }
             }
@@ -37,1222 +34,929 @@
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .custom-scrollbar::-webkit-scrollbar {
-            height: 6px;
-            width: 6px;
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 0;
+            left: 19px;
+            width: 2px;
+            background: #E2E8F0;
+            z-index: 0;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         @media print {
             .no-print { display: none !important; }
-            body { background: white; color: black; }
-            .print-break { page-break-after: always; }
+            .print-full { width: 100% !important; margin: 0 !important; }
+            body { background: white !important; color: black !important; }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
 
-    <!-- Sticky Top Navigation -->
-    <header class="sticky top-0 z-50 bg-slate-900/95 text-white backdrop-blur shadow-md border-b border-slate-800 no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="bg-red-600 text-white font-black text-xl px-2.5 py-1 rounded-lg tracking-wider">JAPAN</span>
+    <!-- Header Banner -->
+    <header class="relative bg-tokyo-dark text-white overflow-hidden shadow-xl border-b-4 border-tokyo-red">
+        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div>
-                    <h1 class="text-lg font-bold tracking-tight leading-none text-white">精選東京深度 8 日遊</h1>
-                    <p class="text-xs text-slate-400 mt-0.5">專屬旅行社等級客製化行程表</p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tokyo-red/90 text-white text-xs sm:text-sm font-semibold tracking-wide mb-3 shadow-sm">
+                        <i class="fa-solid fa-plane-arrival"></i> 專屬客製化行程
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white mb-2">
+                        【酷遊東京・多面樂園】
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg font-normal max-w-2xl">
+                        8天7夜深度體驗：下町風情・潮流購物・動漫巡禮・熱血棒球觀賽
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 mt-4 text-xs sm:text-sm text-slate-300">
+                        <span><i class="fa-regular fa-calendar-check text-tokyo-gold mr-1"></i> 2026/08/19 (三) - 08/26 (三)</span>
+                        <span><i class="fa-solid fa-location-dot text-tokyo-red mr-1"></i> 日本東京及近郊</span>
+                        <span><i class="fa-solid fa-hotel text-blue-400 mr-1"></i> 東京站周邊 APA 飯店</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-3 no-print">
+                    <button onclick="openModal('checklistModal')" class="flex items-center gap-2 px-4 py-2.5 bg-slate-800/80 hover:bg-slate-700 text-white text-sm font-medium rounded-xl border border-slate-600 transition shadow-md">
+                        <i class="fa-solid fa-list-check text-tokyo-gold"></i> 行前準備
+                    </button>
+                    <button onclick="window.print()" class="flex items-center gap-2 px-4 py-2.5 bg-tokyo-red hover:bg-red-700 text-white text-sm font-medium rounded-xl transition shadow-md">
+                        <i class="fa-solid fa-print"></i> 列印行程
+                    </button>
                 </div>
             </div>
-            <div class="flex items-center space-x-3">
-                <button onclick="window.print()" class="flex items-center space-x-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-medium rounded-lg text-slate-200 transition border border-slate-700">
-                    <i class="fa-solid fa-print text-red-400"></i>
-                    <span class="hidden sm:inline">列印 / 匯出 PDF</span>
-                </button>
-                <button onclick="toggleChecklistModal()" class="flex items-center space-x-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-xs font-medium rounded-lg text-white shadow transition">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <span>行前準備清單</span>
-                </button>
+        </div>
+
+        <!-- Sticky Day Navigation Bar -->
+        <div class="bg-slate-900/95 border-t border-slate-800 backdrop-blur-md sticky top-0 z-30 no-print shadow-md">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between overflow-x-auto hide-scrollbar py-2 gap-1 sm:gap-2">
+                    <button onclick="scrollToDay('day1')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">1</span> 8/19 三
+                    </button>
+                    <button onclick="scrollToDay('day2')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">2</span> 8/20 四
+                    </button>
+                    <button onclick="scrollToDay('day3')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">3</span> 8/21 五
+                    </button>
+                    <button onclick="scrollToDay('day4')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">4</span> 8/22 六
+                    </button>
+                    <button onclick="scrollToDay('day5')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">5</span> 8/23 日
+                    </button>
+                    <button onclick="scrollToDay('day6')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">6</span> 8/24 一
+                    </button>
+                    <button onclick="scrollToDay('day7')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">7</span> 8/25 二
+                    </button>
+                    <button onclick="scrollToDay('day8')" class="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-1.5">
+                        <span class="bg-tokyo-red text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">8</span> 8/26 三
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="relative bg-slate-900 text-white py-12 md:py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Tokyo Night Sky" 
-                 class="w-full h-full object-cover"
-                 onerror="this.src='https://placehold.co/1920x800/1e293b/ffffff?text=Tokyo+Travel'"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 bg-red-600/90 text-white rounded-full text-xs font-semibold mb-4 tracking-wide shadow-sm">
-                    <i class="fa-solid fa-plane-arrival"></i>
-                    <span>8 天 7 夜東京全景客製行程</span>
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4">
-                    【酷遊東京・多面樂園】<br><span class="text-red-500">動漫・古都・潮流・棒球</span> 深度之旅
-                </h2>
-                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                    匯聚淺草歷史、晴空塔俯瞰、鎌倉江之島海岸線、秋葉原動漫聖地、東京巨蛋棒球賽、六本木夜景與潮流澀谷，一站式帶您體驗極致東京魅力。
-                </p>
-                <div class="flex flex-wrap gap-4 text-xs sm:text-sm font-medium">
-                    <div class="bg-slate-800/80 backdrop-blur px-4 py-2 rounded-lg border border-slate-700/60 flex items-center space-x-2">
-                        <i class="fa-regular fa-calendar-days text-red-400"></i>
-                        <span>旅行日期：8/19（三）– 8/26（三）</span>
-                    </div>
-                    <div class="bg-slate-800/80 backdrop-blur px-4 py-2 rounded-lg border border-slate-700/60 flex items-center space-x-2">
-                        <i class="fa-solid fa-location-dot text-amber-400"></i>
-                        <span>主要住宿：東京站附近 APA 飯店</span>
-                    </div>
-                    <div class="bg-slate-800/80 backdrop-blur px-4 py-2 rounded-lg border border-slate-700/60 flex items-center space-x-2">
-                        <i class="fa-solid fa-train text-emerald-400"></i>
-                        <span>主要交通：N'EX 特快、地鐵、江之電</span>
-                    </div>
-                </div>
+    <!-- Main Content Grid -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Search Filter Bar (No Print) -->
+        <div class="mb-8 no-print glass-card rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full sm:w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="searchInput" onkeyup="filterItinerary()" placeholder="搜尋景點、美食或關鍵字（例：晴空塔、巨蛋、銀座）..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-tokyo-red focus:bg-white transition">
             </div>
-
-            <!-- Quick Stats Card -->
-            <div class="w-full md:w-80 bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 shadow-2xl backdrop-blur">
-                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-700 pb-2">行程亮點總覽</h3>
-                <div class="grid grid-cols-2 gap-3 text-center">
-                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/40">
-                        <div class="text-2xl font-black text-red-400">8 天</div>
-                        <div class="text-xs text-slate-400">精選天數</div>
-                    </div>
-                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/40">
-                        <div class="text-2xl font-black text-amber-400">12+</div>
-                        <div class="text-xs text-slate-400">熱門商圈</div>
-                    </div>
-                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/40">
-                        <div class="text-2xl font-black text-emerald-400">1 暢打</div>
-                        <div class="text-xs text-slate-400">巨蛋巨人隊觀賽</div>
-                    </div>
-                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/40">
-                        <div class="text-2xl font-black text-sky-400">3 大</div>
-                        <div class="text-xs text-slate-400">動漫懷舊聖地</div>
-                    </div>
-                </div>
+            <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <i class="fa-solid fa-circle-info text-blue-500"></i> 快速查看每日詳細行程規劃
             </div>
         </div>
-    </section>
 
-    <!-- Filter Bar & Day Nav -->
-    <div class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <!-- Filter Pills -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                <!-- Day Fast Jump Tabs -->
-                <div class="flex items-center space-x-2 overflow-x-auto pb-1 md:pb-0 custom-scrollbar text-xs font-medium">
-                    <button onclick="scrollToDay('all')" class="day-tab px-3 py-2 rounded-lg bg-red-600 text-white font-semibold whitespace-nowrap transition shadow-sm" id="tab-all">
-                        全覽 8 天
-                    </button>
-                    <button onclick="scrollToDay('day1')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day1">
-                        D1 8/19 抵達/日本橋
-                    </button>
-                    <button onclick="scrollToDay('day2')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day2">
-                        D2 8/20 淺草/晴空塔/銀座
-                    </button>
-                    <button onclick="scrollToDay('day3')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day3">
-                        D3 8/21 秋葉原/東京巨蛋
-                    </button>
-                    <button onclick="scrollToDay('day4')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day4">
-                        D4 8/22 鎌倉/江之島
-                    </button>
-                    <button onclick="scrollToDay('day5')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day5">
-                        D5 8/23 春日部/六本木
-                    </button>
-                    <button onclick="scrollToDay('day6')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day6">
-                        D6 8/24 豪德寺/下北澤/澀谷
-                    </button>
-                    <button onclick="scrollToDay('day7')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day7">
-                        D7 8/25 龜有/柴又/上野
-                    </button>
-                    <button onclick="scrollToDay('day8')" class="day-tab px-3 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition" id="tab-day8">
-                        D8 8/26 退房/返台
-                    </button>
-                </div>
+        <div class="space-y-10">
 
-                <!-- Spot Category Filter & Search -->
-                <div class="flex items-center space-x-2 shrink-0">
-                    <div class="relative w-full sm:w-48">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
-                        <input type="text" id="spotSearch" onkeyup="filterSpots()" placeholder="搜尋景點或關鍵字..." 
-                               class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition">
+            <!-- DAY 1 -->
+            <section id="day1" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D1
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">✈️ Day 1｜8/19（三）抵達東京・丸之內與銀座購物</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">開啟東京之旅：抵達與夜遊日本橋</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-train"></i> N'EX成田特快</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-moon"></i> 日本橋夜景</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1000&q=80" alt="日本橋夜景" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">古典與現代交織的夜風情</p>
+                                        <p class="text-sm font-bold">日本橋周邊地區</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    抵達東京成田機場後，搭乘 N'EX 直達東京車站，入住附近的 APA 飯店辦理入住與放置行李。晚間漫步於古色古香且兼具現代繁華的日本橋地區，享受第一晚的悠閒東京夜色與在地美食。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+                                
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        20:00 - 21:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">成田機場 ➡️ 東京站</h4>
+                                        <p class="text-xs text-slate-500 mt-1">搭乘 N'EX 成田特快直達東京車站，舒適便捷。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        21:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">飯店 Check-in</h4>
+                                        <p class="text-xs text-slate-500 mt-1">前往東京站附近的 APA 飯店辦理入住手續，放置行李。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        21:00 後
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">日本橋（夜間散步與享用晚餐）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">漫步於日本橋經典街道，享受夜間靜謐氣氛並尋訪在地美食享用晚餐。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- DAY 2 -->
+            <section id="day2" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D2
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">⛩️ Day 2｜8/20（四）下町風情・淺草與晴空塔</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">晴空城購物・淺草下町與銀座時尚</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-tower-observation"></i> 晴空塔 Solamachi</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-gopuram"></i> 淺草雷門</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-bag-shopping"></i> 銀座 Shopping</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1000&q=80" alt="東京晴空塔" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">東京高空地標與購物天堂</p>
+                                        <p class="text-sm font-bold">東京晴空塔 Solamachi</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    白天的行程精彩多元！前往東京晴空塔享受高空展望與大型商場 Solamachi 購物，傍晚前往淺草寺感受雷門與仲見世通的夕陽風情，晚間接續造訪東京車站動漫街與銀座 flagships 旗艦店。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        13:00 - 15:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京晴空塔</h4>
+                                        <p class="text-xs text-slate-500 mt-1">
+                                            <strong>展望台：</strong>登高俯瞰東京全景。<br>
+                                            <strong>東京晴空街道（Solamachi）：</strong>寶可夢中心（Pokémon Center）、Jump Shop。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        16:00 - 18:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">淺草寺與仲見世通</h4>
+                                        <p class="text-xs text-slate-500 mt-1">雷門拍照、參拜；沿路品嚐傳統點心與挑選紀念品。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        16:00 - 18:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京車站周邊</h4>
+                                        <p class="text-xs text-slate-500 mt-1">
+                                            <strong>東京車站一番街：</strong>動漫人物街（Character Street）。<br>
+                                            <strong>KITTE 丸之內：</strong>觀景台欣賞丸之內站前古蹟建築。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        18:00 - 20:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">銀座購物（停留 2 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">必逛店家：UNIQLO 旗艦店、GU、GINZA SIX 百貨。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-700 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        20:00 ~
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">返回飯店</h4>
+                                        <p class="text-xs text-slate-500 mt-1">休息或於飯店周邊享用晚餐。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 3 -->
+            <section id="day3" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D3
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">⚾ Day 3｜8/21（五）東京巨蛋城與熱血觀賽</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">巨蛋周邊散策・巨人隊主場熱血觀賽</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-baseball font-bold"></i> 讀賣巨人主場</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-building"></i> LaQua 商場</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1508801001725-5149bc162403?auto=format&fit=crop&w=1000&q=80" alt="東京巨蛋" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">日本棒球殿堂與娛樂城</p>
+                                        <p class="text-sm font-bold">東京巨蛋城 (Tokyo Dome City)</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    享受充滿活力的一天！早上輕鬆出門在東京巨蛋周邊散步逛逛，午後漫步巨蛋城購物，傍晚開心地進入球場選購限定應援周邊與球場美食，準備觀看熱血沸騰的日本職棒巨人隊主場賽事！
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        09:30 - 13:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京巨蛋周邊散策</h4>
+                                        <p class="text-xs text-slate-500 mt-1">舒適出門，於東京巨蛋周邊綠地與街廓輕鬆散步漫遊。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        13:00 - 14:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">午餐時間</h4>
+                                        <p class="text-xs text-slate-500 mt-1">於東京巨蛋周邊特色餐廳享用午餐。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        14:30 - 16:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京巨蛋城（停留 2 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">主要行程：逛 LaQua 購物中心、周邊商店街。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        16:30 - 18:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">球場進場</h4>
+                                        <p class="text-xs text-slate-500 mt-1">進巨蛋找座位、買應援週邊與球場美食。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-gold text-slate-900 text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        18:00 ~
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">讀賣巨人觀賽</h4>
+                                        <p class="text-xs text-slate-500 mt-1">熱血觀看棒球比賽，親身體驗日職球場震撼的應援氣氛。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 4 -->
+            <section id="day4" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D4
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">🏯 Day 4｜8/22（六）鎌倉與江之島一日遊・東京鐵塔拍照</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">古都湘南海岸・灌籃高手平交道與閃耀鐵塔</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-train-subway"></i> 江之電</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-camera"></i> 鎌倉高校前</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-tower-broadcast text-tokyo-red"></i> 東京鐵塔夜景</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="東京鐵塔夜景" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">東京最經典絕美地標夜景</p>
+                                        <p class="text-sm font-bold">東京鐵塔 Tokyo Tower</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    前往近郊鎌倉與江之島體驗湘南海岸風光，走訪鶴岡八幡宮與經典的《灌籃高手》平交道。晚間回程抵達東京市區後，加碼前去地標東京鐵塔 🗼 留下絕美夜景合影！
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        08:00 - 09:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京 ➡️ 鎌倉</h4>
+                                        <p class="text-xs text-slate-500 mt-1">出發搭車前往鎌倉。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        09:30 - 11:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">小町通（停留 1.5 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">鎌倉老街散策。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        11:00 - 11:45
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">鶴岡八幡宮（停留 45 分鐘）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">參拜古老神社。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        12:00 - 13:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">午餐時間</h4>
+                                        <p class="text-xs text-slate-500 mt-1">品嚐在地料理。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        13:00 - 14:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">搭乘江之電 ➡️ 鎌倉高校前（停留 30 分鐘）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">前往鎌倉高校前，灌籃高手經典平交道拍照。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        14:00 - 18:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">江之島神社與商店街</h4>
+                                        <p class="text-xs text-slate-500 mt-1">參拜邊津宮、中津宮、奧津宮；商店街必吃：咖哩麵包、大佛燒、吻仔魚丼、章魚仙貝。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        18:00 ~ 晚間
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">回程 ➡️ 東京鐵塔 🗼 拍照行程</h4>
+                                        <p class="text-xs text-slate-500 mt-1">搭車返回東京市區，夜間前往東京鐵塔拍攝打卡美麗景致。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 5 -->
+            <section id="day5" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D5
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">🖍️ Day 5｜8/23（日）蠟筆小新故鄉與六本木夜景</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">春日部巡禮・六本木新城夜景</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-child text-amber-400"></i> 蠟筆小新故鄉</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-city"></i> Tokyo City View</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="六本木夜景" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">俯瞰繁華東京絕美大景</p>
+                                        <p class="text-sm font-bold">六本木 Tokyo City View</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    感受豐富的視覺震撼！上午走訪蠟筆小新故鄉春日部，打卡各種經典動漫場景；晚間前往時尚重鎮六本木，登上 Tokyo City View 展望台，將東京鐵塔與麻布台 Hills 等百萬夜景盡收眼底。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        08:30 - 10:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京 ➡️ 春日部</h4>
+                                        <p class="text-xs text-slate-500 mt-1">搭車前往東武動物公園站/春日部站。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        10:00 - 14:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">春日部蠟筆小新巡禮（停留 4 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">景點：小新雕像、春日部市役所、觀光案內所、春日部商店街。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        14:00 - 17:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">午餐與回程 / 休息</h4>
+                                        <p class="text-xs text-slate-500 mt-1">在當地用餐後搭車返回東京市區，飯店稍作休息或直接前往六本木。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        17:30 - 19:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">六本木晚餐</h4>
+                                        <p class="text-xs text-slate-500 mt-1">在六本木新城周邊享用晚餐。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        19:00 - 21:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">Tokyo City View（停留 2 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">拍攝亮點：東京鐵塔、麻布台 Hills、新宿、澀谷、東京灣的百萬夜景。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 6 -->
+            <section id="day6" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D6
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">🐱 Day 6｜8/24（一）豪德寺・下北澤與潮流澀谷</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">招財貓寺院・古著文青與澀谷潮流</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-cat text-amber-300"></i> 豪德寺招財貓</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-shirt"></i> 下北澤古著</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-crosswalk"></i> 澀谷十字路口</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1000&q=80" alt="澀谷潮流" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">全球最忙碌潮流交會點</p>
+                                        <p class="text-sm font-bold">澀谷 Shibuya Crossing</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    從招財貓發源地豪德寺開始，走訪古著文青天堂下北澤，接著到明治神宮享受市中心的大森林散步。沿著竹下通、表參道、貓街一路漫步至澀谷，感受最前線的東京流行文化。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        09:00 - 10:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">豪德寺（停留 1 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">拍攝滿滿的招財貓。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        10:30 - 14:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">下北澤（停留 2.5 小時）與午餐</h4>
+                                        <p class="text-xs text-slate-500 mt-1">
+                                            主要風格：Vintage 古著、文青雜貨、獨立咖啡廳、黑膠唱片。<br>
+                                            必去推薦：Bonus Track、Reload 下北線路街。午餐於下北澤特色餐廳或咖哩店用餐。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        14:30 - 18:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">明治神宮 ➡️ 原宿 ➡️ 表參道 ➡️ 澀谷散策</h4>
+                                        <p class="text-xs text-slate-500 mt-1">明治神宮森林散步（1小時）。路線：竹下通 ➡️ 表參道 ➡️ 貓街（Cat Street，極好拍）➡️ 一路散步到澀谷。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        18:30 - 21:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">澀谷潮流中心（停留 3 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">
+                                            地標：澀谷十字路口、忠犬八公像。<br>
+                                            必逛百貨：MAGNET by SHIBUYA109、Shibuya PARCO（任天堂、寶可夢中心）、Disney Store、Loft、Hands。
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 7 -->
+            <section id="day7" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D7
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">🐢 Day 7｜8/25（二）烏龍派出所・秋葉原與上野藥妝</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">龜有尋兩津・秋葉原動漫巡禮與上野掃貨</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-gamepad text-emerald-400"></i> 兩津勘吉銅像</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-bolt text-yellow-300"></i> 秋葉原動漫電器</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-prescription-bottle-medical"></i> 上野藥妝大補貨</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1569705460033-cfa31b875867?auto=format&fit=crop&w=1000&q=80" alt="秋葉原電玩動漫街" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">動漫與電玩朝聖聖地</p>
+                                        <p class="text-sm font-bold">秋葉原 (Akihabara)</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    早上前往龜有尋找兩津勘吉銅像，隨後造訪動漫朝聖地秋葉原尋寶。午後前往上野，在阿美橫丁與多慶屋做最後的藥妝伴手禮大掃貨！
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        09:30 - 11:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">龜有（停留 2 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">主要行程：尋找《烏龍派出所》兩津勘吉等角色銅像、逛龜有商店街。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        12:00 - 15:00
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">秋葉原動漫電器街巡禮 & 午餐（停留 3 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">主要行程：逛動漫周邊、模型店、電器行，體驗女僕咖啡廳與享用午餐。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        15:30 - 19:30
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">上野（停留 4 小時）</h4>
+                                        <p class="text-xs text-slate-500 mt-1">
+                                            購物掃貨：阿美橫丁、多慶屋、松坂屋，補齊所有藥妝與伴手禮。<br>
+                                            晚餐時間：在上野享用居酒屋、拉麵或炸牛排。
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DAY 8 -->
+            <section id="day8" class="day-card scroll-mt-20">
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 transition-all duration-300">
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-5 sm:p-6 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-tokyo-red text-white font-black text-xl sm:text-2xl w-12 h-12 rounded-2xl flex items-center justify-center shadow-md shrink-0">
+                                D8
+                            </div>
+                            <div>
+                                <div class="text-tokyo-gold text-xs font-bold uppercase tracking-wider">✈️ Day 8｜8/26（三）退房・最後採買與返台</div>
+                                <h2 class="text-xl sm:text-2xl font-bold">東京車站最後巡禮・搭機返台</h2>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-suitcase"></i> 行李寄放</span>
+                            <span class="bg-slate-700/80 px-3 py-1 rounded-full text-slate-200"><i class="fa-solid fa-plane-departure text-sky-400"></i> 搭機返台</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                        <div class="lg:col-span-5 p-5 sm:p-6 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md mb-4 group">
+                                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80" alt="東京車站" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 text-white">
+                                        <p class="text-xs font-light">滿載美好的東京旅程記憶</p>
+                                        <p class="text-sm font-bold">東京車站一番街</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                    旅程最後一天，退房寄放行李後，把握最後時間在東京車站周邊最後採買，隨後搭乘 N'EX 特快前往成田機場，帶著豐富的回憶與戰利品順利返台。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 p-5 sm:p-6 bg-white">
+                            <div class="relative timeline-line space-y-6">
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        早上
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">飯店 Check-out</h4>
+                                        <p class="text-xs text-slate-500 mt-1">辦理退房，可將行李寄放在飯店或東京站置物櫃。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        彈性時間
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">東京車站周邊最後採買</h4>
+                                        <p class="text-xs text-slate-500 mt-1">推薦去處：東京站一番街、丸之內周邊。</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 flex items-start gap-4 group">
+                                    <div class="bg-tokyo-red text-white text-xs font-bold px-2.5 py-1 rounded-lg shrink-0 mt-0.5 shadow-sm">
+                                        下午
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h4 class="font-bold text-slate-800 text-base">搭乘 N'EX ➡️ 成田機場 ✈️ 返台</h4>
+                                        <p class="text-xs text-slate-500 mt-1">從東京站出發前往成田機場，搭機返台。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
-    </div>
-
-    <!-- Main Content Container -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
-
-        <!-- DAY 1 CARD -->
-        <section id="day1" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" 
-                         alt="Nihonbashi Night View" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Nihonbashi+Night'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-plane-arrival"></i>
-                        <span>Day 1</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/19（三）</div>
-                        <h3 class="text-xl font-bold tracking-tight">抵達東京・丸之內與日本橋夜景</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-amber-50 text-amber-700 font-medium rounded-full border border-amber-200/60">住宿：東京站附近 APA 飯店</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-train"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">成田機場 ➡️ 東京站</h4>
-                                        <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded">20:00 - 21:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">搭乘 N'EX 成田特快直達東京車站。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-hotel"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">飯店 Check-in</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">21:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">前往東京站附近的 APA 飯店辦理入住手續並放置行李。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">日本橋（夜間散步與享用晚餐）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">21:00 後</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">夜間漫步古色古香的日本橋商業區，體驗獨特的現代與傳統交融夜景並享用在地晚餐。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#NEX成田特快</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#日本橋夜散策</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#東京站APA飯店</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 2 CARD -->
-        <section id="day2" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=800&q=80" 
-                         alt="Asakusa Sensoji & Skytree" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Asakusa+Skytree'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-torii-gate"></i>
-                        <span>Day 2</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/20（四）</div>
-                        <h3 class="text-xl font-bold tracking-tight">下町風情・淺草、晴空塔與銀座</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-red-50 text-red-700 font-medium rounded-full border border-red-200/60">經典名勝 + 購物</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-camera"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">淺草寺（停留 2 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">09:00 - 11:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">雷門地標大紅燈籠拍照打卡、參拜百年古煞祈福。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-cookie-bite"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">仲見世通（停留 1 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">11:00 - 12:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">沿路品嚐傳統和菓子、人形燒等在地點心，挑選紀念品。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-bowl-food"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">午餐時間</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">12:00 - 13:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">在淺草周邊享用在地美食（如天婦羅炸蝦蓋飯或日式壽喜燒）。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-tower-broadcast"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京晴空塔 (Skytree)</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">13:00 - 15:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>展望台：</strong>登高俯瞰東京都市全景。<br>
-                                        • <strong>東京晴空街道（Solamachi）：</strong>逛寶可夢中心（Pokémon Center）、Jump Shop 採買動漫周邊。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 5 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-building"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京車站周邊</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">16:00 - 18:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>東京車站一番街：</strong>逛動漫人物街（Character Street）。<br>
-                                        • <strong>KITTE 丸之內：</strong>至露天觀景台欣賞東京車站丸之內站前古蹟紅磚建築。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">銀座購物（停留 2 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">18:00 - 20:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">必逛店家：UNIQLO 12層旗艦店、GU、GINZA SIX 高端百貨。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 7 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-house font-bold"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">返回飯店</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">20:00 ~</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">返回飯店休息或於飯店周邊享用晚餐。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#雷門參拜</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#晴空塔展望台</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#KITTE丸之內觀景</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#銀座UNIQLO旗艦店</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 3 CARD -->
-        <section id="day3" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80" 
-                         alt="Akihabara & Tokyo Dome Baseball Game" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Akihabara+Tokyo+Dome'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-baseball font-bold"></i>
-                        <span>Day 3</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/21（五）</div>
-                        <h3 class="text-xl font-bold tracking-tight">秋葉原動漫巡禮・東京巨蛋觀賽</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-amber-50 text-amber-700 font-medium rounded-full border border-amber-200/60">動漫天堂 + 熱血日職</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-gamepad"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">秋葉原（停留 3.5 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">09:30 - 13:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">主要行程：逛動漫周邊、模型公仔店、電器行。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">午餐時間</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">13:00 - 14:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">在秋葉原或東京巨蛋周邊餐廳用餐。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-store"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京巨蛋城（停留 2 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">14:30 - 16:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">主要行程：逛 LaQua 購物中心與周邊商店街。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-ticket"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">球場進場與準備</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">16:30 - 18:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">進巨蛋找到座位、購買隊伍應援週邊與球場限定美食。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 5 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-baseball font-bold"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">讀賣巨人觀賽</h4>
-                                        <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded">18:00 ~</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">現場熱血觀看日本職棒讀賣巨人主場對抗戰！</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#秋葉原電器動漫</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#東京巨蛋城</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#讀賣巨人隊觀賽</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 4 CARD -->
-        <section id="day4" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80" 
-                         alt="Kamakura Enoshima Coastal Railway" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Kamakura+Enoshima'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-water"></i>
-                        <span>Day 4</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/22（六）</div>
-                        <h3 class="text-xl font-bold tracking-tight">古都風情・鎌倉與江之島海岸一日遊</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-sky-50 text-sky-700 font-medium rounded-full border border-sky-200/60">近郊踏青 + 聖地巡禮</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-train"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京 ➡️ 鎌倉</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">08:00 - 09:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">搭乘電車出發前往鎌倉。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-store"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">小町通（停留 1.5 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">09:30 - 11:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">漫步鎌倉老街，體驗傳統小吃的溫暖氣息。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-torii-gate"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">鶴岡八幡宮（停留 45 分鐘）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">11:00 - 11:45</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">參拜歷史悠久的古老神社，感受幽靜氛圍。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">午餐時間</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">12:00 - 13:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">品嚐鎌倉在地特有料理。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 5 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-train-subway"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">搭乘江之電 ➡️ 鎌倉高校前</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">13:00 - 14:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        搭乘江之電，於<strong>鎌倉高校前（停留30分鐘）</strong>下車，在《灌籃高手》經典平交道前拍下青春打卡照。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-umbrella-beach"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">江之島巡禮（江之島神社 & 商店街）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">14:00 - 18:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>14:00-15:00：</strong>步行或搭車過橋進入江之島。<br>
-                                        • <strong>15:00-16:30：</strong>參拜江之島神社（邊津宮、中津宮、奧津宮）。<br>
-                                        • <strong>16:30-18:00：</strong>江之島商店街美食：必吃咖哩麵包、大佛燒、吻仔魚丼、章魚仙貝。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 7 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-arrow-left font-bold"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">回程</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">18:00 ~</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">搭車返回東京市區。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#鶴岡八幡宮</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#灌籃高手平交道</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#江之電</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#吻仔魚丼章魚仙貝</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 5 CARD -->
-        <section id="day5" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" 
-                         alt="Crayon Shin-chan Kasukabe & Roppongi Hills Night View" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Kasukabe+Roppongi'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-face-smile"></i>
-                        <span>Day 5</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/23（日）</div>
-                        <h3 class="text-xl font-bold tracking-tight">蠟筆小新故鄉春日部・六本木百萬夜景</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-purple-50 text-purple-700 font-medium rounded-full border border-purple-200/60">動漫聖地 + 奢華夜景</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-train"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京 ➡️ 春日部</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">08:30 - 10:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">搭車前往東武動物公園站 / 春日部站。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-child"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">春日部蠟筆小新巡禮（停留 4 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">10:00 - 14:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">重點景點：小新雕像、春日部市役所、觀光案內所、春日部商店街打卡。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">午餐與回程</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">14:00 - 15:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">在春日部當地用餐後，搭車返回東京市區。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-bed"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">飯店休息 / 前往六本木</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">15:30 - 17:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">飯店稍作休息，或直接前往六本木地區。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 5 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-wine-glass"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">六本木晚餐</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">17:30 - 19:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">在六本木新城（Roppongi Hills）周邊精緻餐廳享用晚餐。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-city"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">Tokyo City View（停留 2 小時）</h4>
-                                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">19:00 - 21:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">拍攝亮點：東京鐵塔點燈、麻布台 Hills、新宿、澀谷、東京灣夜景。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#春日部蠟筆小新</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#六本木新城</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#TokyoCityView夜景</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#東京鐵塔打卡</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 6 CARD -->
-        <section id="day6" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80" 
-                         alt="Gotokuji Temple Cat, Shimokitazawa & Shibuya Crossing" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Shimokitazawa+Shibuya'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-cat"></i>
-                        <span>Day 6</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/24（一）</div>
-                        <h3 class="text-xl font-bold tracking-tight">豪德寺・下北澤文青與潮流澀谷</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-emerald-50 text-emerald-700 font-medium rounded-full border border-emerald-200/60">古著文青 + 時尚時尚</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-cat"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">豪德寺（停留 1 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">09:00 - 10:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">拍攝滿滿的招財貓發源地，捕捉療癒招福貓景致。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-shirt"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">下北澤（停留 2.5 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">10:30 - 13:00</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>主要風格：</strong>Vintage 古著、文青雜貨、獨立咖啡廳、黑膠唱片。<br>
-                                        • <strong>必去推薦：</strong>Bonus Track、Reload 下北線路街。
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">午餐時間</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">13:00 - 14:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">在下北澤特色餐廳或濃郁日式湯咖哩店用餐。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 4 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-tree"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">明治神宮（停留 1 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">14:30 - 15:45</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">享受市中心高聳綠林圍繞的大森林悠閒散步。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 5 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-person-walking"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">原宿 ➡️ 表參道 ➡️ 澀谷散策</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">15:45 - 18:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">路線：竹下通 ➡️ 表參道 ➡️ 貓街（Cat Street，極好拍）➡️ 一路散步到澀谷。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">澀谷潮流中心（停留 3 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">18:30 - 21:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>地標：</strong>澀谷十字路口、忠犬八公像拍照。<br>
-                                        • <strong>必逛百貨：</strong>MAGNET by SHIBUYA109、Shibuya PARCO（任天堂旗艦店、寶可夢中心）、Disney Store、Loft、Hands。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#豪德寺招財貓</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#下北澤古著</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#表參道貓街</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#澀谷PARCO任天堂</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 7 CARD -->
-        <section id="day7" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=800&q=80" 
-                         alt="Sh Shibamata & Ueno Ameyoko Street" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Kameari+Shibamata+Ueno'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-gift"></i>
-                        <span>Day 7</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/25（二）</div>
-                        <h3 class="text-xl font-bold tracking-tight">動漫懷舊・龜有、柴又與上野藥妝掃貨</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-amber-50 text-amber-700 font-medium rounded-full border border-amber-200/60">懷舊動漫 + 伴手禮大採買</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-user-ninja"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">龜有（停留 2 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">09:30 - 11:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">主要行程：尋找《烏龍派出所》兩津勘吉等角色銅像打卡、逛龜有商店街。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-landmark"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">柴又（停留 2.5 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">12:00 - 14:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">主要行程：逛柴又帝釋天、懷舊老街、尋找《男人真命苦》寅先生足跡，並於老街享用傳統午餐。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">上野大掃貨與晚餐（停留 4 小時）</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">15:30 - 19:30</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">
-                                        • <strong>購物掃貨：</strong>阿美橫丁、多慶屋、松坂屋，一次補齊所有藥妝與伴手禮。<br>
-                                        • <strong>晚餐時間：</strong>在上野享用居酒屋、熱騰騰拉麵或經典炸牛排。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#烏龍派出所兩津勘吉</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#柴又帝釋天</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#阿美橫丁</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#多慶屋藥妝採買</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DAY 8 CARD -->
-        <section id="day8" class="day-card bg-white rounded-2xl shadow-md border border-slate-200/80 overflow-hidden transition-all duration-300 hover:shadow-lg">
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-                <!-- Day Banner Image -->
-                <div class="lg:col-span-4 relative h-64 lg:h-auto bg-slate-900 min-h-[260px]">
-                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" 
-                         alt="Tokyo Station & Narita Airport NEX" 
-                         class="w-full h-full object-cover"
-                         onerror="this.src='https://placehold.co/800x600/1e293b/ffffff?text=Tokyo+Station+NEX'"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 left-4 bg-red-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1">
-                        <i class="fa-solid fa-plane-departure"></i>
-                        <span>Day 8</span>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 text-white">
-                        <div class="text-xs font-medium text-red-300">8/26（三）</div>
-                        <h3 class="text-xl font-bold tracking-tight">退房・最後採買與平安返台</h3>
-                    </div>
-                </div>
-
-                <!-- Day Schedule Details -->
-                <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">每日詳細時間軸</span>
-                            <span class="text-xs px-2.5 py-1 bg-slate-100 text-slate-700 font-medium rounded-full border border-slate-200">滿載而歸</span>
-                        </div>
-
-                        <!-- Timeline List -->
-                        <div class="space-y-4 text-sm relative before:absolute before:inset-0 before:left-[19px] before:w-0.5 before:bg-slate-200">
-                            <!-- Item 1 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-suitcase font-bold"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">飯店 Check-out</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">早上</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">辦理退房，可將行李寄放在飯店或東京站大型寄物櫃。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 2 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-cart-flatbed"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">東京車站周邊最後採買</h4>
-                                        <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">彈性時間</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">推薦去處：東京站一番街、丸之內周邊精緻伴手禮店採買補貨。</p>
-                                </div>
-                            </div>
-
-                            <!-- Item 3 -->
-                            <div class="spot-item relative flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold shrink-0 z-10 border-2 border-white shadow-sm text-xs">
-                                    <i class="fa-solid fa-plane"></i>
-                                </div>
-                                <div class="flex-grow pt-0.5">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-900 text-base">搭乘 N'EX 前往成田機場 ➡️ 返台</h4>
-                                        <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded">下午</span>
-                                    </div>
-                                    <p class="text-xs text-slate-600 mt-1">從東京站搭乘 N'EX 成田特快出發前往成田機場，順利辦理登機並搭機返台。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Tags -->
-                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-2 text-xs">
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#東京站一番街</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#NEX成田特快</span>
-                        <span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md font-medium">#平安返台</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Interactive Checklist Modal -->
-    <div id="checklistModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
-        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden border border-slate-100">
-            <div class="bg-slate-900 text-white p-5 flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-clipboard-check text-red-500 text-xl"></i>
-                    <h3 class="font-bold text-lg">東京行前準備與隨身清單</h3>
-                </div>
-                <button onclick="toggleChecklistModal()" class="text-slate-400 hover:text-white transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
+    <!-- Pre-trip Modal (No Print) -->
+    <div id="checklistModal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden no-print">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('checklistModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-tokyo-red"></i> 東京行前準備清單
+            </h3>
+            <div class="space-y-3 text-sm text-slate-600 max-h-96 overflow-y-auto pr-1">
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>護照正本（效期半年以上）</span>
+                </label>
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>填寫 Visit Japan Web 入境海關申報</span>
+                </label>
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>Suica / PASMO 交通卡（可加入 Apple Wallet）</span>
+                </label>
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>日本網卡 / eSIM 啟用</span>
+                </label>
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>日幣現金（部分老街小吃僅收現金）</span>
+                </label>
+                <label class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100">
+                    <input type="checkbox" class="w-4 h-4 text-tokyo-red rounded focus:ring-tokyo-red">
+                    <span>讀賣巨人觀賽門票確認</span>
+                </label>
             </div>
-            <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto text-sm">
-                <div>
-                    <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2 text-xs uppercase tracking-wider text-red-600">證件與交通通關</h4>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>護照（效期 6 個月以上）與 Visit Japan Web 填寫完成</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>N'EX 成田特快車票 / Suica 西瓜卡 (可加入 iPhone Wallet)</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>東京巨蛋觀賽門票與 Tokyo City View 預約券</span>
-                    </label>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2 text-xs uppercase tracking-wider text-red-600">財務與通訊</h4>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>日幣現金（適用於部分老街與神社小吃店）</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>雙海外高回饋信用卡 (記得開通海外刷卡功能)</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>日本上網 eSIM 或實體 SIM 卡 / Wi-Fi 機</span>
-                    </label>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2 text-xs uppercase tracking-wider text-red-600">個人物品與裝備</h4>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>舒適好走的休閒鞋（一天預計萬步以上）</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>行動電源、萬用轉接頭與充電線</span>
-                    </label>
-                    <label class="flex items-center space-x-2 py-1 cursor-pointer">
-                        <input type="checkbox" class="rounded text-red-600 focus:ring-red-500">
-                        <span>摺疊購物袋（上野/澀谷大採買必備）</span>
-                    </label>
-                </div>
-            </div>
-            <div class="bg-slate-50 p-4 border-t border-slate-100 text-right">
-                <button onclick="toggleChecklistModal()" class="px-4 py-2 bg-slate-800 text-white text-xs font-semibold rounded-lg hover:bg-slate-700 transition">關閉</button>
-            </div>
+            <button onclick="closeModal('checklistModal')" class="w-full mt-6 py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition">
+                確認完成
+            </button>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs text-center no-print">
-        <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p class="font-semibold text-slate-300">【酷遊東京・多面樂園】8天7夜客製旅行行程</p>
-            <p>本行程表嚴格依照指定時間與地點編排，預祝您旅途愉快、滿載而歸！</p>
-            <p class="text-slate-500 text-[10px]">© 2026 Customized Tokyo Itinerary. All rights reserved.</p>
-        </div>
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs mt-12 border-t border-slate-800 no-print">
+        <p class="mb-2">祝您擁有極致完美的東京 8 天 7 夜旅遊假期！</p>
+        <p class="text-slate-600">專屬行程設計手冊 • 2026</p>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Smooth Scrolling to specific day card
         function scrollToDay(dayId) {
-            // Update active tab styles
-            document.querySelectorAll('.day-tab').forEach(tab => {
-                tab.classList.remove('bg-red-600', 'text-white', 'font-semibold', 'shadow-sm');
-                tab.classList.add('bg-slate-100', 'text-slate-600');
-            });
-
-            const activeTab = document.getElementById('tab-' + dayId);
-            if (activeTab) {
-                activeTab.classList.remove('bg-slate-100', 'text-slate-600');
-                activeTab.classList.add('bg-red-600', 'text-white', 'font-semibold', 'shadow-sm');
-            }
-
-            if (dayId === 'all') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                return;
-            }
-
             const element = document.getElementById(dayId);
             if (element) {
-                const headerOffset = 130;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
-        // Spot Search Logic
-        function filterSpots() {
-            const query = document.getElementById('spotSearch').value.toLowerCase();
-            const spotItems = document.querySelectorAll('.spot-item');
-            
-            spotItems.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = 'flex';
-                    item.style.opacity = '1';
+        function filterItinerary() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const dayCards = document.querySelectorAll('.day-card');
+
+            dayCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = "block";
                 } else {
-                    item.style.opacity = '0.2';
+                    card.style.display = "none";
                 }
             });
         }
 
-        // Toggle Checklist Modal
-        function toggleChecklistModal() {
-            const modal = document.getElementById('checklistModal');
-            modal.classList.toggle('hidden');
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
         }
     </script>
 </body>
 </html>
+
